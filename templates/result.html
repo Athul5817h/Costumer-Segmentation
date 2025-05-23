@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='result.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+
+        .result-overlay {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .result-container {
+            max-width: 850px;
+            background: #edd7bf;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .result-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: #222;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        .segment-details {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .segment-details h2 {
+            color: #b40b0b;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .segment-details ul {
+            color: #ae1538;
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .segment-details li {
+
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            color: #fff;
+            background: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body class="result-body">
+    <div class="result-overlay">
+        <div class="result-container">
+            <h1>Customer Segmentation Result</h1>
+            <p>Your customer belongs to <span class="highlight">{{ result_message }}</span>.</p>
+
+            <div class="segment-details">
+                <h2>Segment Details</h2>
+                {% if result_message == "Segment 0 (few opportunities)" %}
+                <p><strong>Segment 0 (Few Opportunities):</strong></p>
+                <ul>
+                    <li>Lower income</li>
+                    <li>More kids</li>
+                    <li>Higher deals purchases</li>
+                    <li>Higher web visits</li>
+                    <li>Low expenses</li>
+                    <li>Low accepted campaign count</li>
+                </ul>
+                {% elif result_message == "Segment 1 (well-off)" %}
+                <p><strong>Segment 1 (Well-Off):</strong></p>
+                <ul>
+                    <li>Higher income</li>
+                    <li>Fewer kids</li>
+                    <li>Higher web, catalog, and store purchases</li>
+                    <li>High expenses</li>
+                    <li>Higher accepted campaign count</li>
+                </ul>
+                {% endif %}
+            </div>
+
+            <a href="javascript:history.back()" class="back-link">Back</a>
+
+            <footer>
+                &copy; 2025 Customer Insights. All rights reserved.
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='index.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #333;
+        }
+        .overlay {
+            background: rgba(255, 255, 255, 0.85);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: #91c4cd;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body class="index-body">
+    <div class="index-overlay">
+        <div class="index-container">
+            <h1 style="color: rgb(61, 5, 66);" >Customer Segmentation Form</h1>
+            <form action="/form" method="POST">
+                <label for="education">Education:</label>
+                <input type="Number" id="education" name="education" placeholder="Enter education level">
+
+                <label for="marital_status">Marital Status:</label>
+                <input type="Number" id="marital_status" name="marital_status" placeholder="Enter marital status">
+
+                <label for="income">Income:</label>
+                <input type="number" id="income" name="income" placeholder="Enter income">
+
+                <label for="kidhome">Kidhome:</label>
+                <input type="number" id="kidhome" name="kidhome" placeholder="Number of children">
+
+                <label for="teenhome">Teenhome:</label>
+                <input type="number" id="teenhome" name="teenhome" placeholder="Number of teenagers">
+
+                <label for="recency">Recency:</label>
+                <input type="number" id="recency" name="recency" placeholder="Days since last purchase">
+
+                <label for="mnt_wines">MntWines:</label>
+                <input type="number" id="mnt_wines" name="mnt_wines" placeholder="Amount spent on wine">
+
+                <label for="mnt_fruits">MntFruits:</label>
+                <input type="number" id="mnt_fruits" name="mnt_fruits" placeholder="Amount spent on fruits">
+
+                <label for="mnt_meat_products">MntMeatProducts:</label>
+                <input type="number" id="mnt_meat_products" name="mnt_meat_products" placeholder="Amount spent on meat">
+
+                <label for="mnt_fish_products">MntFishProducts:</label>
+                <input type="number" id="mnt_fish_products" name="mnt_fish_products" placeholder="Amount spent on fish">
+
+                <label for="mnt_sweet_products">MntSweetProducts:</label>
+                <input type="number" id="mnt_sweet_products" name="mnt_sweet_products" placeholder="Amount spent on sweets">
+
+                <label for="mnt_gold_prods">MntGoldProds:</label>
+                <input type="number" id="mnt_gold_prods" name="mnt_gold_prods" placeholder="Amount spent on gold">
+
+                <label for="num_deals_purchases">NumDealsPurchases:</label>
+                <input type="number" id="num_deals_purchases" name="num_deals_purchases" placeholder="Purchases with deals">
+
+                <label for="num_web_purchases">NumWebPurchases:</label>
+                <input type="number" id="num_web_purchases" name="num_web_purchases" placeholder="Web purchases">
+
+                <label for="num_catalog_purchases">NumCatalogPurchases:</label>
+                <input type="number" id="num_catalog_purchases" name="num_catalog_purchases" placeholder="Catalog purchases">
+
+                <label for="num_store_purchases">NumStorePurchases:</label>
+                <input type="number" id="num_store_purchases" name="num_store_purchases" placeholder="Store purchases">
+
+                <label for="num_web_visits_month">NumWebVisitsMonth:</label>
+                <input type="number" id="num_web_visits_month" name="num_web_visits_month" placeholder="Web visits last month">
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter age">
+
+                <label for="years_customer">Years_customer:</label>
+                <input type="number" id="years_customer" name="years_customer" placeholder="Years as a customer">
+
+                <label for="total_expenses">Total_Expenses:</label>
+                <input type="number" id="total_expenses" name="total_expenses" placeholder="Total expenses">
+
+                <label for="total_acc_cmp">Total_Acc_Cmp:</label>
+                <input type="number" id="total_acc_cmp" name="total_acc_cmp" placeholder="Total campaigns accepted">
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
