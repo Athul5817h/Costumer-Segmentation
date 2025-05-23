@@ -3,8 +3,8 @@ from flask_pymongo import PyMongo
 import joblib
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb://localhost:27017/CustomerSegmentation"
-mongo = PyMongo(app)
+# app.config["MONGO_URI"] = "mongodb://localhost:27017/CustomerSegmentation"
+# mongo = PyMongo(app)
 
 
 @app.route("/")
@@ -47,32 +47,32 @@ def brain():
         ]
         arr = [values]
 
-        customer_data = {
-            "education": education,
-            "marital_status": marital_status,
-            "income": income,
-            "kidhome": kidhome,
-            "teenhome": teenhome,
-            "recency": recency,
-            "mnt_wines": mnt_wines,
-            "mnt_fruits": mnt_fruits,
-            "mnt_meat_products": mnt_meat_products,
-            "mnt_fish_products": mnt_fish_products,
-            "mnt_sweet_products": mnt_sweet_products,
-            "mnt_gold_prods": mnt_gold_prods,
-            "num_deals_purchases": num_deals_purchases,
-            "num_web_purchases": num_web_purchases,
-            "num_catalog_purchases": num_catalog_purchases,
-            "num_store_purchases": num_store_purchases,
-            "num_web_visits_month": num_web_visits_month,
-            "age": age,
-            "years_customer": years_customer,
-            "total_expenses": total_expenses,
-            "total_acc_cmp": total_acc_cmp
-            }
+        # customer_data = {
+        #     "education": education,
+        #     "marital_status": marital_status,
+        #     "income": income,
+        #     "kidhome": kidhome,
+        #     "teenhome": teenhome,
+        #     "recency": recency,
+        #     "mnt_wines": mnt_wines,
+        #     "mnt_fruits": mnt_fruits,
+        #     "mnt_meat_products": mnt_meat_products,
+        #     "mnt_fish_products": mnt_fish_products,
+        #     "mnt_sweet_products": mnt_sweet_products,
+        #     "mnt_gold_prods": mnt_gold_prods,
+        #     "num_deals_purchases": num_deals_purchases,
+        #     "num_web_purchases": num_web_purchases,
+        #     "num_catalog_purchases": num_catalog_purchases,
+        #     "num_store_purchases": num_store_purchases,
+        #     "num_web_visits_month": num_web_visits_month,
+        #     "age": age,
+        #     "years_customer": years_customer,
+        #     "total_expenses": total_expenses,
+        #     "total_acc_cmp": total_acc_cmp
+        #     }
 
 
-        mongo.db.CustomerSeg.insert_one(customer_data)
+        # mongo.db.CustomerSeg.insert_one(customer_data)
         # Load model
         model = joblib.load("customer_segmentation_model.pkl")
 
